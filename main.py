@@ -68,10 +68,10 @@ pyautogui.click(pyautogui.center(encontrou))
 # PREENCHER DATA NEGOCIAÇÃO DIA ANTERIOR E PRIMEIRO COLOCAR NATUREZA 1030200
 encontrou = encontrar_imagem("datainiciotef.png")
 pyautogui.click(direita(encontrou))
-pyautogui.write("30052023")
+pyautogui.write("01062023")
 encontrou = encontrar_imagem("datafimtef.png")
 pyautogui.click(direita(encontrou))
-pyautogui.write("30052023")
+pyautogui.write("01062023")
 encontrou = encontrar_imagem("toptef.png")
 pyautogui.click(direita(encontrou))
 pyautogui.write("5")
@@ -80,7 +80,7 @@ pyautogui.click(direita(encontrou))
 pyautogui.write("1030200")
 encontrou = encontrar_imagem("datanegociacaotef.png")
 pyautogui.click(direita(encontrou))
-pyautogui.write("31052023")
+pyautogui.write("02062023")
 encontrou = encontrar_imagem("oktef.png")
 pyautogui.click(pyautogui.center(encontrou))
 
@@ -104,13 +104,13 @@ pyautogui.click(pyautogui.center(encontrou))
 #insere data no pedido de venda
 encontrou = encontrar_imagem("dtnegociacaopedidovenda.png")
 pyautogui.click(pyautogui.center(encontrou))
-pyautogui.write("31052023")
+pyautogui.write("02062023")
 
 #preenche a parte 2 da data para filtro
 encontrou = encontrar_imagem("dtnegociacaofimpedidovenda.png")
 time.sleep(2)
 pyautogui.click(direita(encontrou))
-pyautogui.write("31052023")
+pyautogui.write("02062023")
 
 #clica em aplicar
 encontrou = encontrar_imagem("aplicafiltro.png")
@@ -149,6 +149,10 @@ while True:
 ##############################################################################################
 
 
+encontrou = encontrar_imagem("fechacentralvendas.png") # fecha a tela que abre de central de vendas
+pyautogui.click(direita(encontrou))
+
+
 #confirmar para faturar
 time.sleep(4)
 encontrou = encontrar_imagem("confirmaantesfaturar.png")
@@ -165,7 +169,7 @@ encontrou = encontrar_imagem("faturar.png")
 pyautogui.click(pyautogui.center(encontrou))
 encontrou = encontrar_imagem("dtfaturamento.png")
 pyautogui.click(direita(encontrou))
-pyautogui.write("31052023")
+pyautogui.write("02062023")
 #proximo
 encontrou = encontrar_imagem("proximo.png")
 pyautogui.click(pyautogui.center(encontrou))
@@ -177,7 +181,7 @@ pyautogui.write("21")
 pyautogui.press('tab')
 pyautogui.write("14")
 pyautogui.press('tab')
-pyautogui.write("31052023")
+pyautogui.write("02062023")
 #marca um pra cada nota
 encontrou = encontrar_imagem("marca1cadanota.png")
 pyautogui.click(direita(encontrou))
@@ -185,6 +189,77 @@ pyautogui.click(direita(encontrou))
 encontrou = encontrar_imagem("concluifaturamento.png")
 pyautogui.click(pyautogui.center(encontrou))
 
+# fecha a tela que avisa sobre o faturamento concluído
+encontrou = encontrar_imagem("fechaconfirma.png")
+pyautogui.click(pyautogui.center(encontrou))
+
+# mudar para nota de venda e fazer o processo final
+encontrou = encontrar_imagem("mudapranotadevenda.png") #clica no pedido de venda pra abrir
+pyautogui.click(pyautogui.center(encontrou))
+encontrou = encontrar_imagem("mudandoparanotadevenda.png") # troca para nota de venda
+pyautogui.click(pyautogui.center(encontrou))
+
+#insere data no pedido de venda
+encontrou = encontrar_imagem("dtnegociacaopedidovenda.png")
+pyautogui.click(pyautogui.center(encontrou))
+pyautogui.write("02062023")
+
+#preenche a parte 2 da data para filtro
+encontrou = encontrar_imagem("dtnegociacaofimpedidovenda.png")
+time.sleep(2)
+pyautogui.click(direita(encontrou))
+pyautogui.write("02062023")
+
+#clica em aplicar
+encontrou = encontrar_imagem("aplicafiltro.png")
+pyautogui.click(pyautogui.center(encontrou))
+encontrou = encontrar_imagem("aplicafiltro.png") #confirma aplicar na tela de natureza
+pyautogui.click(pyautogui.center(encontrou))
+
+
+##############################################################################################
+
+# Encontra a primeira nota fiscal
+encontrou = encontrar_imagem("naoenf.png")
+posicao_inicial = inferior(encontrou)
+
+# Clica na primeira nota fiscal
+pyautogui.click(posicao_inicial)
+
+# Simula o pressionamento das teclas Shift+End para selecionar todas as notas fiscais
+pyautogui.hotkey('shift', 'end')
+
+# Rola o scroll do mouse até o limite para encontrar as demais notas fiscais
+while True:
+    pyautogui.scroll(-1)  # Rola o scroll para cima (valor negativo para rolar para baixo)
+    encontrou = encontrar_imagem("naoenf.png")
+    if encontrou is None:
+        break
+    pyautogui.click(inferior(encontrou))
+
+
+##############################################################################################
+
+
+encontrou = encontrar_imagem("fechaconfirma.png")# fecha tela de confirmação de notas confirmadas
+pyautogui.click(pyautogui.center(encontrou))
+
+
+# Abrir a telinha NFS-e
+encontrou = encontrar_imagem("abrebuscaautorizacao.png")
+pyautogui.click(pyautogui.center(encontrou))
+
+# buscar a autorização da(s) nota(s)
+encontrou = encontrar_imagem("buscaautorizacao.png")
+pyautogui.click(pyautogui.center(encontrou))
+encontrou = encontrar_imagem("fechatelaerro.png") # fecha a telinha de erro do sankhya web
+pyautogui.click(pyautogui.center(encontrou))
+
+#finalizar operação fechando a telinha de filtro por natureza
+encontrou = encontrar_imagem("fechaconfirma.png")
+pyautogui.click(pyautogui.center(encontrou))
+
+#estou com problemas para selecionar todas as notas
 
 
 # Obter as coordenadas do mouse
