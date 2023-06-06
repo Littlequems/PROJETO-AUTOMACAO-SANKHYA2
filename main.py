@@ -44,7 +44,7 @@ encontrou = encontrar_imagem("arquivo.png")
 encontrou = encontrar_imagem("boxsenha.png")
 pyautogui.click(pyautogui.center(encontrou))
 
-#inserir senha Tip2022.
+#inserir a senha
 pyautogui.write("********")
 encontrou = encontrar_imagem("prosseguirsenha.png")
 pyautogui.click(pyautogui.center(encontrou))
