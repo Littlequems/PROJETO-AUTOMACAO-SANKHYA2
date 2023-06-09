@@ -26,14 +26,15 @@ def inferior(posicao_imagem):
 
 # Abrir o ERP (SANKHYA)
 # Coordenadas do botão "Abrir ERP" na tela
-x = 928
-y = 1046
+# trocar pelas coordenadas do ERP em seu computador
+x = ***
+y = ****
 
 # Mover o mouse para as coordenadas e clicar
 pyautogui.moveTo(x, y)
 pyautogui.click()
 
-# COLOCAR MINHA SENHA NO SANKHYA (Tip2022.)
+# COLOCAR MINHA SENHA NO SANKHYA (******)
 
 # encontrou = None
 # encontrou = x, y, largura, altura
