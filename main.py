@@ -1,8 +1,9 @@
+# importação das bibliotecas utilizadas
 import pyautogui
 import subprocess
 import time
 import cv2
-
+# para encerrar o programa em qualquer momento apenas colocar o mouse em uma das 4 extremidades da tela
 pyautogui.FAILSAFE = True
 
 
@@ -28,6 +29,10 @@ def inferior(posicao_imagem):
 # trocar pelas coordenadas do ERP em seu computador
 x = ***
 y = ****
+
+# Codigo retorna a posição do mouse na tela quando executado para descobrir onde está localizado seu ERP
+# coordenadas = pyautogui.position()
+# print(coordenadas)
 
 # Mover o mouse para as coordenadas e clicar
 pyautogui.moveTo(x, y)
@@ -262,6 +267,4 @@ pyautogui.click(pyautogui.center(encontrou))
 #estou com problemas para selecionar todas as notas
 
 
-# Obter as coordenadas do mouse
-# coordenadas = pyautogui.position()
-# print(coordenadas)
+
