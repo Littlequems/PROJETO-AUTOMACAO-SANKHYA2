@@ -1,4 +1,3 @@
-# Escrever a lógica que a gente vai construir em português passo a passo
 import pyautogui
 import subprocess
 import time
